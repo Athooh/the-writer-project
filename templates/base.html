@@ -31,16 +31,16 @@
 
         <ul>
           <li>
-            <a href="index.html">home</a>
+            <a href="{% url 'index' %}">home</a>
           </li>
           <li>
-            <a href="blog.html">blog</a>
+            <a href="#">blog</a>
           </li>
           <li>
-            <a href="about.html">about</a>
+            <a href="{% url 'about' %}">about</a>
           </li>
           <li>
-            <a href="gallary.html">gallary</a>
+            <a href="#">gallary</a>
           </li>
         </ul>
       </div>
@@ -53,10 +53,10 @@
 
       <!-- Navigation links (hidden by default) -->
       <div id="myLinks">
-        <a href="index.html">home</a>
-        <a href="blog.html">blog</a>
-        <a href="about.html">about</a>
-        <a href="gallary.html">gallary</a>
+        <a href="{% url 'index' %}">home</a>
+        <a href="#">blog</a>
+        <a href="{% url 'about' %}">about</a>
+        <a href="#">gallary</a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -85,7 +85,7 @@
       </div>
       <!-- Popup Div Ends Here -->
     </div>
-
+    {% block content %} {% endblock %}
     <div class="footer">
       <div class="main-section">
         <div class="subscribe">
