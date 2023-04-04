@@ -22,47 +22,10 @@
   </head>
 
   <body>
-    <nav>
-      <div class="navigation">
-        <div class="logo">
-          <img src="{% static 'images/pen.png' %}" alt="logo" />
-          <p>the writer</p>
-        </div>
-
-        <ul>
-          <li>
-            <a href="{% url 'index' %}">home</a>
-          </li>
-          <li>
-            <a href="#">blog</a>
-          </li>
-          <li>
-            <a href="{% url 'about' %}">about</a>
-          </li>
-          <li>
-            <a href="#">gallary</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Top Navigation Menu -->
-    <div class="topnav">
-      <a href="#home" class="active"
-        ><img src="{% static 'images/the writer logo.jpg' %}" alt="logo" />
-      </a>
-
-      <!-- Navigation links (hidden by default) -->
-      <div id="myLinks">
-        <a href="{% url 'index' %}">home</a>
-        <a href="#">blog</a>
-        <a href="{% url 'about' %}">about</a>
-        <a href="#">gallary</a>
-      </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars fa-lg"></i>
-      </a>
-    </div>
+    <!--navbar-->
+    {% include 'partials/_navbar.html' %}
+    <!--topbar-->
+    {% include 'partials/_topbar.html' %}
 
     <!--popup contact form-->
     <div id="abc">
@@ -86,142 +49,10 @@
       <!-- Popup Div Ends Here -->
     </div>
     {% block content %} {% endblock %}
-    <div class="footer">
-      <div class="main-section">
-        <div class="subscribe">
-          <h3>subscribe</h3>
-          <p>
-            Subscribe to our newsletter today! Recieve updates, tips, support
-            and inspiration once a month.
-          </p>
-          <div class="form-container">
-            <h2>Subscribe to our Newsletter</h2>
 
-            <div class="input-container" style="background-color: white">
-              <input type="text" placeholder="Name" name="name" required />
-              <input
-                type="text"
-                placeholder="Email address"
-                name="mail"
-                required
-              />
-              <label>
-                <input type="checkbox" checked="checked" name="subscribe" />
-                Daily Newsletter
-              </label>
-            </div>
-
-            <div class="submit-container">
-              <input type="submit" value="Subscribe" />
-            </div>
-          </div>
-        </div>
-        <div class="recent_post">
-          <h3>recent posts</h3>
-          <div class="post_box">
-            <div class="rp1">
-              <a href=""
-                ><img
-                  src="{% static 'images/federica-abbinante-AsnexPb9Mfk-unsplash.jpg' %}"
-                  alt=""
-              /></a>
-            </div>
-            <a href="">
-              <p>change it every month? <br /><span>18 April.2023</span></p>
-            </a>
-          </div>
-
-          <div class="post_box">
-            <div class="rp1">
-              <a href=""
-                ><img
-                  src="{% static 'images/graham-mansfield-y7ywDXWJ-JU-unsplash.jpg' %}"
-                  alt=""
-              /></a>
-            </div>
-            <a href="">
-              <p>
-                why doctors recommend morning workouts?<br /><span
-                  >15 April.2022</span
-                >
-              </p></a
-            >
-          </div>
-
-          <div class="post_box">
-            <div class="rp1">
-              <a href=""
-                ><img
-                  src="{% static 'images/louis-hansel--9CjvlbUGhY-unsplash.jpg' %}"
-                  alt=""
-              /></a>
-            </div>
-            <a href=""
-              ><p>
-                eating healthy is now expensive. <br /><span
-                  >18 september.2023</span
-                >
-              </p></a
-            >
-          </div>
-          <div class="post_box">
-            <div class="rp1">
-              <a href=""
-                ><img
-                  src="{% static 'images/bluebird-provisions-CjmlUpo3eAw-unsplash.jpg' %}"
-                  alt=""
-              /></a>
-            </div>
-            <a href=""
-              ><p>how many meals per day? <br /><span>18 may.2021</span></p>
-            </a>
-          </div>
-          <div class="post_box">
-            <div class="rp1">
-              <a href=""
-                ><img
-                  src="{% static 'images/christina-wocintechchat-com-f6wB7D_xISY-unsplash.jpg' %}"
-                  alt=""
-              /></a>
-            </div>
-            <a href="">
-              <p>
-                rise of online jobs a boom to the economy. <br /><span
-                  >1 january.2023</span
-                >
-              </p></a
-            >
-          </div>
-        </div>
-        <div class="contact">
-          <h3>get in touch</h3>
-          <div class="socialbox">
-            <div class="box"><i class="fa fa-phone"></i> +254 720 000 000</div>
-
-            <div class="box">
-              <i class="fa fa-envelope"></i> info@thewriter.co.ke
-            </div>
-            <div class="box">
-              <i class="fas fa-address-card"></i>Oginga Odinga st 12/34, Tivoli
-              Center
-            </div>
-            <div class="box">
-              <i class="fa-sharp fa-solid fa-pen"></i>send email via
-              <span id="popup" onclick="div_show()">contact form</span>
-            </div>
-          </div>
-          <div class="logo">
-            <img src="{% static 'images/pen.png' %}" alt="logo" />
-            <p>the writer</p>
-          </div>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>2023 &copy; copyright reserved | AppNex Limited</p>
-      </div>
-    </div>
     <!-- END DEMO HTML -->
-
+    <!--footer-->
+    {% include 'partials/_footer.html' %}
     <!-- gsap js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.2/gsap.min.js"></script>
     <!-- CSSRulePlugin JS -->

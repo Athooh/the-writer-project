@@ -1,0 +1,55 @@
+{% extends 'base.html' %}{% load static %} {% block content %}
+
+<div class="gallary-container">
+    <h2>gallary</h2>
+
+    <div class="gallary">
+        <div class="gallary-box1">
+            <div class="box-1">
+                {% if main_photo %} {% for photo in main_photo %}
+                <a href="{{ photo.photo.url }}" data-lightbox="gallary" data-title="activities"><img src="{{ photo.photo.url }}" alt="" id="gallary-10" /></a>
+                {% endfor %} {% else %}
+                <div class="col-md-12">
+                    <p>No Main photo Available</p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="box-4">
+                {% if gallary %} {% for photo in gallary %}
+                <a href="{{ photo.photo.url }}" data-lightbox="gallary" data-title="activities"><img src="{{ photo.photo.url }}" alt="" id="gallary-2" /></a>
+                {% endfor %} {% else %}
+                <div class="col-md-12">
+                    <p>No Gallary photos Available</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="gallary-box2">
+
+            <div class="box-4">
+                {% if gallary2 %} {% for photo in gallary2 %}
+                <a href="{{ photo.photo.url }}" data-lightbox="gallary" data-title="activities"><img src="{{ photo.photo.url }}" alt="" id="gallary-2" /></a>
+                {% endfor %} {% else %}
+                <div class="col-md-12">
+                    <p>No Gallary photos Available</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="box-1">
+                {% if main_photo1 %} {% for photo in main_photo1 %}
+                <a href="{{ photo.photo.url }}" data-lightbox="gallary" data-title="activities"><img src="{{ photo.photo.url }}" alt="" id="gallary-10" /></a>
+                {% endfor %} {% else %}
+                <div class="col-md-12">
+                    <p>No Main photo Available</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+</div>
+</div>

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}{% load static %}{% load humanize %} {% block content %}
+<div class="blog-container">
+    <div class="blog_post">
+        <h2>the daily post</h2>
+        {% if post %} {% for posting in post %}
+        <div class="post">
+            <div class="img_box">
+                <a href="{% url 'post' posting.post_id %}"><img src="{{ posting.post_image.url }}" alt=""></a>
+            </div>
+            <div class="article_box">
+                <a href="{% url 'post' posting.post_id %}">
+                    <p>Author: <span>{{ posting.author }}</span></p>
+                    <p><i class="fas fa-clock"></i> {{ posting.post_date | timesince }}</p>
+                    <h3>{{ posting.title }}</h4>
+                        <p>{{ posting.post_intro }} <span>read more...</span></p>
+                        <br>
+                        <p><span>veiws:</span> 187 <span>  comments:</span> 12</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %} {% else %}
+        <div class="col-md-12">
+            <P>No Post Available</P>
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="blog_category">
+
+        <h2>categories</h2>
+        <div class="box">
+
+            <a href="#">
+                <img src="images/christina-wocintechchat-com-f6wB7D_xISY-unsplash.jpg" alt="" />
+            </a>
+            <div class="cat1">
+                <h2>Brand identity</h2>
+                <a href="#">
+                    <hr />
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
+                    </p>
+            </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a href="#">
+                <img src="images/wp2841657-cool-pc-wallpapers.jpg" alt="" /></a>
+
+            <div class="cat1">
+                <a href="#">
+                    <h2>graphic design</h2>
+                    <hr />
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
+                    </p>
+            </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a href="#">
+                <img src="images/dan-senior-5YY2fN9jrac-unsplash.jpg" alt="" />
+            </a>
+            <div class="cat1">
+                <a href="#">
+                    <h2>photography</h2>
+                    <hr />
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
+                    </p>
+            </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a href="#">
+                <img src="images/james-harrison-vpOeXr5wmR4-unsplash.jpg" alt="" /></a>
+            <div class="cat1">
+                <a href="#">
+                    <h2>web design</h2>
+                    <hr />
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
+                    </p>
+            </div>
+            </a>
+        </div>
+
+
+
+        <div class="breadcrumbs">
+
+            <hr />
+
+            <div class="recent_post">
+                <h2>recent posts</h2>
+                {% if recent_post %}{% for post in recent_post %}
+                <div class="post_box">
+                    <div class="rp1">
+                        <a href=""><img src="{{ post.post_image.url }}" alt="" /></a>
+                    </div>
+                    <a href="">
+                        <p>{{ post.title }} <br /><span>{{post.post_date | timesince}}</span></p>
+                    </a>
+
+                </div>
+                {% endfor %}{% else %}
+                <div class="col-md-12">
+                    <p>No Recent Post Available</p>
+                </div>
+                {% endif %}
+
+
+
+                <hr />
+                <div class="socials">
+                    <h2>follow us</h2>
+                    <ul>
+                        <li>
+                            <a href=""><i class="fab fa-whatsapp"></i> </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-instagram"></i> </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-pinterest"></i> </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-twitter"></i> </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-facebook"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--Pagination
+<div class="paginator">
+    <div class="page-button">
+        {% if post.has_other_pages %}
+        <div class="btn-group" role="group" aria-label="pagination">
+            {% if post.has_previous %}
+
+            <a href="?page={{post.previous_page_number}}" class="btn btn-outline-primary">&laquo;</a
+          >
+        {% endif %}
+        {% for i in post.paginator.page_range %} 
+        {% if post.number == i %}
+        <button class="btn btn-outline-primary active">
+          <span>{{i}}<span class="sr-only">(current)</span></span>
+                    </button>
+                    {% else %}
+                    <a href="?page={{i}}" class="btn btn-outline-primary">{{i}}</a>
+            </li>
+            {% endif %} {% endfor %} {% if post.has_next %}
+            <a href="?page={{post.next_page_number}}" class="btn btn-outline-primary">&raquo;</a
+          >
+        {% endif %}
+        </div>
+        {% endif %}
+        </div>
+        </div>
+    -->
+{% endblock %}

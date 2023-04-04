@@ -32,27 +32,17 @@
   <div class="our-team">
     <h2>meet our team</h2>
     <div class="team">
+      {% if authors %} {% for author in authors %}
       <div class="team-box">
-        <img src="images/elegant-man-suit.jpg" alt="" />
-        <p>john doe</p>
-        <p><span>CEO</span></p>
+        <img src="{{ author.photo.url }}" alt="" />
+        <p>{{ author.name }}</p>
+        <p><span>{{ author.job_description }}</span></p>
       </div>
-      <div class="team-box">
-        <img
-          src="images/businesswoman-executive-professional-success-concept.jpg"
-          alt=""
-        />
-        <p>Lucy Anderson</p>
-        <p><span>director marketing</span></p>
+      {% endfor %} {% else %}
+      <div class="col-md-12">
+        <p>No Team Member Posted</p>
       </div>
-      <div class="team-box">
-        <img
-          src="images/african-american-happy-successful-man-suit-glasses-black-business-man.jpg"
-          alt=""
-        />
-        <p>mike lewis</p>
-        <p><span>director customer relations</span></p>
-      </div>
+      {% endif %}
     </div>
   </div>
   <div class="bottom-section">
