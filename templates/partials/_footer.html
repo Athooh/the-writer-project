@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load humanize %}
 <!--footer-->
 
 <div class="footer">
@@ -28,80 +28,26 @@
     </div>
     <div class="recent_post">
       <h3>recent posts</h3>
+      {% if recent_post %}{% for post in recent_post %}
       <div class="post_box">
         <div class="rp1">
-          <a href=""
-            ><img
-              src="{% static 'images/federica-abbinante-AsnexPb9Mfk-unsplash.jpg' %}"
-              alt=""
+          <a href="{% url 'post' post.post_id %}"
+            ><img src="{{ post.post_image.url }}" alt=""
           /></a>
         </div>
-        <a href="">
-          <p>change it every month? <br /><span>18 April.2023</span></p>
+        <a href="{% url 'post' post.post_id %}">
+          <p>
+            {{ post.title }} <br /><span
+              >{{post.post_date | timesince}} ago</span
+            >
+          </p>
         </a>
       </div>
-
-      <div class="post_box">
-        <div class="rp1">
-          <a href=""
-            ><img
-              src="{% static 'images/graham-mansfield-y7ywDXWJ-JU-unsplash.jpg' %}"
-              alt=""
-          /></a>
-        </div>
-        <a href="">
-          <p>
-            why doctors recommend morning workouts?<br /><span
-              >15 April.2022</span
-            >
-          </p></a
-        >
+      {% endfor %}{% else %}
+      <div class="col-md-12">
+        <p>No Recent Post Available</p>
       </div>
-
-      <div class="post_box">
-        <div class="rp1">
-          <a href=""
-            ><img
-              src="{% static 'images/louis-hansel--9CjvlbUGhY-unsplash.jpg' %}"
-              alt=""
-          /></a>
-        </div>
-        <a href=""
-          ><p>
-            eating healthy is now expensive. <br /><span
-              >18 september.2023</span
-            >
-          </p></a
-        >
-      </div>
-      <div class="post_box">
-        <div class="rp1">
-          <a href=""
-            ><img
-              src="{% static 'images/bluebird-provisions-CjmlUpo3eAw-unsplash.jpg' %}"
-              alt=""
-          /></a>
-        </div>
-        <a href=""
-          ><p>how many meals per day? <br /><span>18 may.2021</span></p>
-        </a>
-      </div>
-      <div class="post_box">
-        <div class="rp1">
-          <a href=""
-            ><img
-              src="{% static 'images/christina-wocintechchat-com-f6wB7D_xISY-unsplash.jpg' %}"
-              alt=""
-          /></a>
-        </div>
-        <a href="">
-          <p>
-            rise of online jobs a boom to the economy. <br /><span
-              >1 january.2023</span
-            >
-          </p></a
-        >
-      </div>
+      {% endif %}
     </div>
     <div class="contact">
       <h3>get in touch</h3>

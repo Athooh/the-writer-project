@@ -340,7 +340,7 @@ span {
 }
 
 .breadcrumbs img {
-  width: 80%;
+  width: 90%;
   height: 370px;
 }
 
@@ -359,8 +359,9 @@ span {
   width: 90%;
   padding-top: 5px;
   color: #666;
-  font-style: italic;
+  text-transform: capitalize;
   font-size: 12px;
+  text-align: center;
 }
 
 .author button {
@@ -390,6 +391,11 @@ span {
 
 .blog_category p {
   width: 90%;
+  color: #444;
+}
+
+.blog_category p span {
+  color: rgb(0, 170, 255);
 }
 
 .blog_category a .box {
@@ -400,6 +406,7 @@ span {
 .blog_category a {
   cursor: pointer;
   text-decoration: none;
+  color: #444;
 }
 
 .blog_category a img {
@@ -3026,7 +3033,7 @@ input[type="submit"]:hover {
     margin-top: 10px;
   }
   .breadcrumbs .socials ul li {
-    padding-right: 40px;
+    padding-right: 20px;
   }
   /*about page*/
   .about-container {

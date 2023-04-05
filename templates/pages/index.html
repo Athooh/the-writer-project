@@ -4,7 +4,7 @@
     <div class="main_post">
         {% if post %} {% for posting in post %}
         <h2>{{posting.title}}</h2>
-        <p><span> by {{posting.author}}, <i class="fas fa-clock"></i> {{posting.post_date | timesince}}</span></p>
+        <p><span> by {{posting.author}}, <i class="fas fa-clock"></i> {{posting.post_date | timesince}} ago</span></p>
         <img src="{{ posting.post_image.url }}" alt="" />
         <div class="intro-phrase">
             <p>
@@ -28,69 +28,28 @@
         </div>
         <div class="blog_category">
 
-
+            {% if brands %} {% for brand in brands %}
             <div class="box">
 
                 <a href="#">
-                    <img src="images/christina-wocintechchat-com-f6wB7D_xISY-unsplash.jpg" alt="" />
+                    <img src="{{ brand.photo.url }}" alt="" />
                 </a>
                 <div class="cat1">
-                    <h2>Brand identity</h2>
+                    <h2>{{ brand.category }}</h2>
                     <a href="#">
                         <hr />
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
+                            {{ brand.brand_intro }} <span>read more...</span>
                         </p>
                 </div>
                 </a>
             </div>
-
-
-            <div class="box">
-                <a href="#">
-                    <img src="images/wp2841657-cool-pc-wallpapers.jpg" alt="" /></a>
-
-                <div class="cat1">
-                    <a href="#">
-                        <h2>graphic design</h2>
-                        <hr />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
-                        </p>
-                </div>
-                </a>
+            {% endfor %} {% else %}
+            <div class="col-md-12">
+                <p>No Brand Category Posted</p>
             </div>
+            {% endif %}
 
-
-            <div class="box">
-                <a href="#">
-                    <img src="images/dan-senior-5YY2fN9jrac-unsplash.jpg" alt="" />
-                </a>
-                <div class="cat1">
-                    <a href="#">
-                        <h2>photography</h2>
-                        <hr />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
-                        </p>
-                </div>
-                </a>
-            </div>
-
-
-            <div class="box">
-                <a href="#">
-                    <img src="images/james-harrison-vpOeXr5wmR4-unsplash.jpg" alt="" /></a>
-                <div class="cat1">
-                    <a href="#">
-                        <h2>web design</h2>
-                        <hr />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis ut dolor, accusantium, quae aspernatur incidunt.
-                        </p>
-                </div>
-                </a>
-            </div>
 
         </div>
         <div class="breadcrumbs-hr">
@@ -141,10 +100,10 @@
             {% if recent_post %}{% for post in recent_post %}
             <div class="post_box">
                 <div class="rp1">
-                    <a href=""><img src="{{ post.post_image.url }}" alt="" /></a>
+                    <a href="{% url 'post' post.post_id %}"><img src="{{ post.post_image.url }}" alt="" /></a>
                 </div>
-                <a href="">
-                    <p>{{ post.title }} <br /><span>{{post.post_date | timesince}}</span></p>
+                <a href="{% url 'post' post.post_id %}">
+                    <p>{{ post.title }} <br /><span>{{post.post_date | timesince}} ago</span></p>
                 </a>
 
             </div>
