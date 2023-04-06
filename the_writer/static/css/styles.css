@@ -296,8 +296,12 @@ span {
 
 .main_post p {
   width: 90%;
-  padding: 10px 0;
+  padding: 5px 0;
   text-transform: capitalize;
+}
+
+.main_post p span {
+  padding: 5px 0;
 }
 
 .intro-phrase p {
@@ -487,7 +491,7 @@ span {
 .recent_post .post_box {
   display: flex;
   align-content: center;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .recent_post .post_box a {
@@ -609,13 +613,25 @@ span {
   word-wrap: normal;
 }
 
+.post-container .post p span {
+  text-transform: capitalize;
+}
+
 .post-container .recent_post {
   width: 35%;
   padding: 20px;
 }
 
+.post-container .recent_post hr {
+  margin: 5px 0;
+}
+
 .post-container .recent_post .author {
   padding: 10px 0;
+}
+
+.post-container .recent_post .post_box {
+  padding-top: 10px;
 }
 
 .post-container .recent_post .author img {

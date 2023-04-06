@@ -4,8 +4,8 @@
   <div class="post">
     <h2>{{post.title}}</h2>
     <p>
-      <span>
-        by {{post.author}}, <i class="fas fa-clock"></i> {{post.post_date |
+      <span
+        >by {{post.author}}, <i class="fas fa-clock"></i> {{post.post_date |
         timesince}} ago</span
       >
     </p>
@@ -35,7 +35,7 @@
     <hr />
 
     <h2>recent posts</h2>
-    {% if old_posts %} {% for post in old_posts %}
+    {% if recent_post %} {% for post in recent_post %}
     <div class="post_box">
       <div class="rp1">
         <a href="{% url 'post' post.post_id %}"
