@@ -1,1 +1,81 @@
-<h1>post</h1>
+{%extends 'base.html'%}{% load static %}{% load humanize %}{% block content%}
+
+<div class="post-container">
+  <div class="post">
+    <h2>{{post.title}}</h2>
+    <p>
+      <span>
+        by {{post.author}}, <i class="fas fa-clock"></i> {{post.post_date |
+        timesince}} ago</span
+      >
+    </p>
+    <img src="{{post.post_image.url}}" alt="" />
+    <div class="intro-phrase">
+      <p>{{post.post_intro}}</p>
+      <hr />
+    </div>
+
+    <p>{{post.post_main}}</p>
+    <hr />
+  </div>
+
+  <div class="recent_post">
+    {% if authors %} {% for author in authors %}
+    <div class="author">
+      <h2>featured author</h2>
+      <img src="{{author.photo.url}}" alt="" />
+      <p>{{author.name}}</p>
+      <p>{{author.job_description}}</p>
+    </div>
+    {% endfor %} {% else %}
+    <div class="col-md-12">
+      <p>No Mvp Posting Available</p>
+    </div>
+    {% endif %}
+    <hr />
+
+    <h2>recent posts</h2>
+    {% if old_posts %} {% for post in old_posts %}
+    <div class="post_box">
+      <div class="rp1">
+        <a href="{% url 'post' post.post_id %}"
+          ><img src="{{post.post_image.url}}" alt=""
+        /></a>
+      </div>
+      <a href="{% url 'post' post.post_id %}">
+        <p>
+          {{post.title}} <br /><span>{{post.post_date | timesince}} ago</span>
+        </p>
+      </a>
+    </div>
+    {% endfor %} {% else %}
+    <div class="col-md-12">
+      <p>No Recent Posts Available</p>
+    </div>
+    {% endif %}
+
+    <hr />
+    <div class="socials">
+      <h2>follow us</h2>
+      <ul>
+        <li>
+          <a href=""><i class="fab fa-whatsapp"></i> </a>
+        </li>
+        <li>
+          <a href=""><i class="fab fa-instagram"></i> </a>
+        </li>
+        <li>
+          <a href=""><i class="fab fa-pinterest"></i> </a>
+        </li>
+        <li>
+          <a href=""><i class="fab fa-twitter"></i> </a>
+        </li>
+        <li>
+          <a href=""><i class="fab fa-facebook"></i> </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

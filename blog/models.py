@@ -9,6 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     post_image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     post_intro = models.CharField(max_length=500)
+    post_sneakpeak = models.TextField() 
     post_main = models.TextField()
     is_published = models.BooleanField(default=True)
     post_date = models.DateTimeField(default=datetime.now, blank=True)

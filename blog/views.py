@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Post
 from brand_category.models import Brands
+from authors.models import Author
 
 # Create your views here.
 def blog(request):
@@ -10,7 +11,7 @@ def blog(request):
     page = request.GET.get('page')
     paged_post = paginator.get_page(page)
     brands = Brands.objects.all()
-    recent_post = Post.objects.all()[1:5]
+    recent_post = Post.objects.all()[7:12]
     
     context = {
         'post' : paged_post,
@@ -20,4 +21,13 @@ def blog(request):
     return render(request, 'blog/blog.html', context) 
 
 def post(request, post_id):
-    return render(request, 'blog/post.html')
+    #authors = Author.objects.all().filter(is_mvp=True)
+    post = get_object_or_404(Post, pk=post_id)
+    recent_post = Post.objects.all()[7:12]
+    
+    context = {
+        #'authors' : authors,
+        'post' : post,
+        'recent_post' : recent_post
+    }
+    return render(request, 'blog/post.html', context)
