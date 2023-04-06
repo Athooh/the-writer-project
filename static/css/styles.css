@@ -615,6 +615,8 @@ span {
 
 .post-container .post p span {
   text-transform: capitalize;
+  color: rgb(0, 170, 255);
+  font-size: 13px;
 }
 
 .post-container .recent_post {
@@ -2798,7 +2800,7 @@ input[type="submit"]:hover {
   }
   .post-container .post {
     width: 95%;
-    padding: 20px;
+    padding: 20px 10px 20px 15px;
   }
   .post-container .post img {
     width: 100%;
@@ -2807,6 +2809,9 @@ input[type="submit"]:hover {
   .post-container .post p {
     width: 100%;
   }
+  .post-container .post .intro-phrase {
+    width: 95%;
+  }
   .post-container .post .intro-phrase p {
     width: 100%;
   }
@@ -2814,7 +2819,7 @@ input[type="submit"]:hover {
     width: 100%;
   }
   .post-container .post hr {
-    width: 100%;
+    width: 95%;
     margin: 10px 0;
   }
   .post-container .recent_post {
@@ -2852,8 +2857,8 @@ input[type="submit"]:hover {
     box-shadow: none;
   }
   .main .main_post {
-    width: 90%;
-    padding: 20px 10px 20px 20px;
+    width: 95%;
+    padding: 20px 10px 20px 15px;
   }
   .main_post img {
     width: 100%;

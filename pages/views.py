@@ -8,7 +8,7 @@ from brand_category.models  import Brands
 def index(request):
     post = Post.objects.order_by('-post_date')[:1]
     authors = Author.objects.all().filter(is_mvp=True)
-    recent_post = Post.objects.all()[0:5]
+    recent_post = Post.objects.all()[5:10]
     brands = Brands.objects.all()
     
     context = {
@@ -21,7 +21,7 @@ def index(request):
 
 def about(request):
     authors = Author.objects.all()[:3]
-    recent_post = Post.objects.all()[0:5]
+    recent_post = Post.objects.all()[5:10]
     
     context = {
         'authors' : authors,

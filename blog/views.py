@@ -11,7 +11,7 @@ def blog(request):
     page = request.GET.get('page')
     paged_post = paginator.get_page(page)
     brands = Brands.objects.all()
-    recent_post = Post.objects.all()[0:5]
+    recent_post = Post.objects.all()[5:10]
     
     context = {
         'post' : paged_post,
@@ -23,7 +23,7 @@ def blog(request):
 def post(request, post_id):
     authors = Author.objects.all().filter(is_mvp=True)
     post = get_object_or_404(Post, pk=post_id)
-    recent_post = Post.objects.all()[0:5]
+    recent_post = Post.objects.all()[5:10]
     
     context = {
         'authors' : authors,

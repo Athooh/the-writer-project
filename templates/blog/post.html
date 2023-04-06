@@ -4,9 +4,9 @@
   <div class="post">
     <h2>{{post.title}}</h2>
     <p>
-      <span
-        >by {{post.author}}, <i class="fas fa-clock"></i> {{post.post_date |
-        timesince}} ago</span
+      <span>by {{post.author}}, </span
+      ><span>
+        <i class="fas fa-clock"></i> {{post.post_date | timesince}} ago</span
       >
     </p>
     <img src="{{post.post_image.url}}" alt="" />

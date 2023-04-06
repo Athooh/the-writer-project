@@ -9,7 +9,7 @@ def gallary(request):
     gallary2 = Gallary2.objects.all()[0:4]
     main_photo = Gallary.objects.all()[:1]
     main_photo1 = Gallary2.objects.all()[4:5]
-    recent_post = Post.objects.all()[:5]
+    recent_post = Post.objects.all()[5:10]
     context = {
         'gallary': gallary,
         'gallary2': gallary2,
