@@ -44,7 +44,8 @@
       </div>
       <a href="{% url 'post' post.post_id %}">
         <p>
-          {{post.title}} <br /><span>{{post.post_date | timesince}} ago</span>
+          {{post.title}} <br /><i class="fas fa-clock"></i>
+          <span>{{post.post_date | timesince}} ago</span>
         </p>
       </a>
     </div>
