@@ -22,9 +22,13 @@ def index(request):
 def about(request):
     authors = Author.objects.all()[:3]
     recent_post = Post.objects.all()[5:10]
+    num_posts = Post.objects.all().count()
+    authors_count = Author.objects.all().count()
     
     context = {
         'authors' : authors,
-        'recent_post' : recent_post
+        'recent_post' : recent_post,
+        'num_posts' : num_posts,
+        'authors_count' : authors_count
     }
     return render(request, 'pages/about.html', context) 

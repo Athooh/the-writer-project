@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'authors.apps.AuthorsConfig',
     'blog.apps.BlogConfig',
     'gallary.apps.GallaryConfig',
+    'accounts.apps.AccountsConfig',
     'brand_category.apps.BrandCategoryConfig',
     'django.contrib.admin',
     'django.contrib.auth',

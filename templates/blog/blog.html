@@ -11,10 +11,9 @@
                 <a href="{% url 'post' posting.post_id %}">
                     <p>Author: <span>{{ posting.author }}</span></p>
                     <p><i class="fas fa-clock"></i> {{ posting.post_date | timesince }} ago</p>
-                    <h3>{{ posting.title }}</h4>
-                        <p>{{ posting.post_intro }} <span>read more...</span></p>
-                        <br>
-                        <p><span>veiws:</span> 187 <span>  comments:</span> 12</p>
+                    <h3>{{ posting.title }}</h3>
+                    <p>{{ posting.post_intro }} <span>read more...</span></p>
+                    <p><span>veiws:</span> 187 <span>  comments:</span> 12</p>
                 </a>
             </div>
         </div>

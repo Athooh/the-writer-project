@@ -24,10 +24,12 @@ def post(request, post_id):
     authors = Author.objects.all().filter(is_mvp=True)
     post = get_object_or_404(Post, pk=post_id)
     recent_post = Post.objects.all()[5:10]
-    
+   
     context = {
         'authors' : authors,
         'post' : post,
         'recent_post' : recent_post
+        
+        
     }
     return render(request, 'blog/post.html', context)
