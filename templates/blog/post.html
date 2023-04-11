@@ -16,6 +16,69 @@
     </div>
 
     <p>{{post.post_main}}</p>
+
+    <!--comments section-->
+
+    <div class="comments-container">
+      <div class="updated-comment">
+        <div class="comment-card">
+          <img src="{% static 'images/comment_img.png' %}" alt="" />
+          <div class="user-data">
+            <p>username</p>
+            <p><span>posted date</span></p>
+          </div>
+        </div>
+        <div class="comment-posted">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip consequat.
+          </p>
+        </div>
+
+        <div class="small d-flex justify-content-start">
+          <a href="#!" class="d-flex align-items-center me-3">
+            <i class="far fa-thumbs-up me-2"></i>
+            <p class="mb-0">Like</p>
+          </a>
+          <a href="#!" class="d-flex align-items-center me-3">
+            <i class="far fa-comment-dots me-2"></i>
+            <p class="mb-0">Comment</p>
+          </a>
+          <a href="#!" class="d-flex align-items-center me-3">
+            <i class="fas fa-share me-2"></i>
+            <p class="mb-0">Share</p>
+          </a>
+          <a href="#!" class="d-flex align-items-center me-3">
+            <i class="fa fa-trash me-2"></i>
+            <p class="mb-0">Delete</p>
+          </a>
+        </div>
+      </div>
+      <div class="comment">
+        <img src="{% static 'images/comment_img.png' %}" alt="" />
+        <div class="form-outline w-100">
+          <textarea
+            class="form-control"
+            id="textAreaExample"
+            rows="4"
+            style="background: #fff"
+          ></textarea>
+          <label class="form-label" for="textAreaExample">Message</label>
+        </div>
+      </div>
+      <div class="float-end">
+        <button type="button" class="btn btn-primary btn-sm">
+          Post comment
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!--End of comments section-->
     <hr />
   </div>
 
