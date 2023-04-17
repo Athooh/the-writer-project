@@ -1,4 +1,4 @@
-{%extends 'base.html'%}{% load static %}{% load humanize %}{% block content%}
+ {%extends 'base.html'%}{% load static %}{% load humanize %}{% load crispy_forms_tags %}{% block content%}
 
 <div class="post-container">
   <div class="post">
@@ -12,30 +12,31 @@
     <img src="{{post.post_image.url}}" alt="" />
     <div class="intro-phrase">
       <p>{{post.post_intro}}</p>
-      <hr />
+      <hr/>
     </div>
 
     <p>{{post.post_main}}</p>
-
+    
     <!--comments section-->
 
     <div class="comments-container">
       <div class="updated-comment">
+      {% if comments %}
+      <h2>{{ comments.count }} comments</h2>
+      {% for comment in comments %}
+      
         <div class="comment-card">
-          <img src="{% static 'images/comment_img.png' %}" alt="" />
+          <img src="{% static 'images/comment_img.png' %}" alt="{% static 'images/comment_img.png' %}" />
           <div class="user-data">
-            <p>username</p>
-            <p><span>posted date</span></p>
+            <p>{{ comment.commenter_name }}</p>
+            <p><span>{{ comment.date_added }}</span></p>
           </div>
         </div>
         <div class="comment-posted">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip consequat.
+            {{ comment.comment_body }}
           </p>
-        </div>
+        </div> 
 
         <div class="small d-flex justify-content-start">
           <a href="#!" class="d-flex align-items-center me-3">
@@ -55,32 +56,37 @@
             <p class="mb-0">Delete</p>
           </a>
         </div>
+        
+        {% endfor %}{%else%}
+        <div class="col-md-12">
+          <p>No comments added yet...</p>
+        </div>
+        
+        {% endif %}
+        
       </div>
-      <div class="comment">
+      
+     <div class="comment">
         <img src="{% static 'images/comment_img.png' %}" alt="" />
-        <div class="form-outline w-100">
-          <textarea
-            class="form-control"
-            id="textAreaExample"
-            rows="4"
-            style="background: #fff"
-          ></textarea>
-          <label class="form-label" for="textAreaExample">Message</label>
+        <div class="col-md-8 card mb-10  mt-3 ">
+          <div class="card-body">
+
+            <h3>Leave a comment</h3>
+          
+            <form method="POST" style="margin-top: 1.3em;">
+              {% csrf_token %}
+              {{ comment_form | crispy }}
+              <br>
+              <button type="submit" class="btn btn-primary  btn-md">POST COMMENT</button>
+            </form> 
+            
+          </div>
         </div>
       </div>
-      <div class="float-end">
-        <button type="button" class="btn btn-primary btn-sm">
-          Post comment
-        </button>
-        <button type="button" class="btn btn-outline-primary btn-sm">
-          Cancel
-        </button>
-      </div>
-    </div>
-
     <!--End of comments section-->
     <hr />
   </div>
+</div>
 
   <div class="recent_post">
     {% if authors %} {% for author in authors %}
@@ -143,3 +149,4 @@
 </div>
 
 {% endblock %}
+ 

@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Kaushan+Script&family=Michroma&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap");
 :root {
   --bs-body-font-family: "poppins";
+  
 }
 
 * {
@@ -695,7 +696,7 @@ section .container form span {
 
 .comments-container .updated-comment {
   background-color: #efefef;
-  padding: 10px;
+  padding: 20px 10px !important;
   border-radius: 20px;
   margin: 20px 0 !important;
   width: 80% !important;
@@ -705,6 +706,7 @@ section .container form span {
   display: flex;
   justify-content: start;
   align-content: center;
+  margin-top: 20px !important;
 }
 
 .comments-container .comment-card .user-data {
@@ -720,9 +722,21 @@ section .container form span {
 .comments-container .comment-card .user-data p span {
   color: #444 !important;
 }
-
+.comments-container .updated-comment .comment-posted{
+  margin-left: 80px !important;
+}
 .comments-container .updated-comment .comment-posted p {
   font-size: 12px !important;
+
+}
+.comments-container .updated-comment h2{
+  font-size: 15px !important;
+}
+.comments-container .updated-comment .small{
+  margin-left: 80px !important;
+}
+.comments-container .updated-comment .comment form{
+  max-width: 500px !important;
 }
 
 .comments-container .comment-card img {
