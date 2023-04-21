@@ -1,4 +1,4 @@
- {%extends 'base.html'%}{% load static %}{% load humanize %}{% load crispy_forms_tags %}{% block content%}
+ {%extends 'base.html'%}{% load static %}{% load humanize %}{% block content%}
 
 <div class="post-container">
   <div class="post">
@@ -14,7 +14,6 @@
       <p>{{post.post_intro}}</p>
       <hr/>
     </div>
-
     <p>{{post.post_main}}</p>
     
     <!--comments section-->
@@ -28,13 +27,13 @@
         <div class="comment-card">
           <img src="{% static 'images/comment_img.png' %}" alt="{% static 'images/comment_img.png' %}" />
           <div class="user-data">
-            <p>{{ comment.commenter_name }}</p>
+            <p>{{ comment.name }}</p>
             <p><span>{{ comment.date_added }}</span></p>
           </div>
         </div>
         <div class="comment-posted">
           <p>
-            {{ comment.comment_body }}
+            {{ comment.body }}
           </p>
         </div> 
 
@@ -43,7 +42,7 @@
             <i class="far fa-thumbs-up me-2"></i>
             <p class="mb-0">Like</p>
           </a>
-          <a href="#!" class="d-flex align-items-center me-3">
+          <a href="{% url 'post' post.pk %}" class="d-flex align-items-center me-3">
             <i class="far fa-comment-dots me-2"></i>
             <p class="mb-0">Comment</p>
           </a>
@@ -65,27 +64,17 @@
         {% endif %}
         
       </div>
-      
-     <div class="comment">
-        <img src="{% static 'images/comment_img.png' %}" alt="" />
-        <div class="col-md-8 card mb-10  mt-3 ">
-          <div class="card-body">
-
+       
             <h3>Leave a comment</h3>
-          
-            <form method="POST" style="margin-top: 1.3em;">
+            <form method="POST"  action= "{% url 'post' post.pk %}" style="margin-top: 1.3em;">
               {% csrf_token %}
-              {{ comment_form | crispy }}
+              {{ comment_form }}
               <br>
               <button type="submit" class="btn btn-primary  btn-md">POST COMMENT</button>
             </form> 
-            
-          </div>
-        </div>
-      </div>
-    <!--End of comments section-->
-    <hr />
-  </div>
+           
+      <hr />
+    </div>
 </div>
 
   <div class="recent_post">

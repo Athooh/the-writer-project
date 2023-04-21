@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from authors.models import Author
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ class Post(models.Model):
     post_main = models.TextField()
     is_published = models.BooleanField(default=True)
     post_date = models.DateTimeField(default=datetime.now, blank=True)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
 
     def __str__(self):
         return self.title
@@ -22,13 +24,15 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
-    commenter_name = models.CharField(max_length=200)
-    comment_body = models.TextField()
+    name = models.CharField(max_length=200)
+    body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
+    
     class Meta:
         ordering = ['date_added']
-
+    
+   
     def __str__(self):
-        return 'Comment {} by {}'.format(self.comment_body, self.commenter_name)
+        return 'Comment {} by {}'.format(self.body, self.name)

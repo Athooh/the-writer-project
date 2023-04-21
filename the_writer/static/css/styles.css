@@ -707,6 +707,7 @@ section .container form span {
   justify-content: start;
   align-content: center;
   margin-top: 20px !important;
+  height: 40px !important;
 }
 
 .comments-container .comment-card .user-data {
@@ -723,25 +724,26 @@ section .container form span {
   color: #444 !important;
 }
 .comments-container .updated-comment .comment-posted{
-  margin-left: 80px !important;
+  margin-left: 60px !important;
 }
 .comments-container .updated-comment .comment-posted p {
   font-size: 12px !important;
-
+  font-weight: 500 !important;
+  margin-bottom: 5px !important;
 }
 .comments-container .updated-comment h2{
   font-size: 15px !important;
 }
 .comments-container .updated-comment .small{
-  margin-left: 80px !important;
+  margin-left: 60px !important;
 }
 .comments-container .updated-comment .comment form{
   max-width: 500px !important;
 }
 
 .comments-container .comment-card img {
-  width: 60px !important;
-  height: 60px !important;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 50% !important;
   background-color: #ddd;
   padding: 5px;
@@ -756,8 +758,8 @@ section .container form span {
 }
 
 .comments-container .comment img {
-  width: 60px !important;
-  height: 60px !important;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 50% !important;
   background-color: #ffffff;
   padding: 5px;
@@ -768,6 +770,9 @@ section .container form span {
   width: 50% !important;
   margin: 10px 0 !important;
   float: right;
+}
+.post-container .post form{
+  width: 100% !important;
 }
 
 /* Add some padding and a grey background color to containers */
